@@ -3,6 +3,7 @@ defmodule Lfs.Application do
   # for more information on OTP Applications
   @moduledoc false
   alias Lfs.Config.{AppConfig, ConfigHolder}
+  alias Lfs.EntryPoint.Rest.RestController
   use Application
   require Logger
   def start(_type, _args) do
