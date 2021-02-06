@@ -24,3 +24,5 @@ lfs-*.tar
 
 .code
 .idea
+/config/dev.exs
+/config/pdn.exs

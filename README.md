@@ -1,6 +1,13 @@
 # Lfs
 
-**TODO: Add description**
+Git LFS Server with S3 Backend
+
+
+##
+**TODO:**
+- Enable Git server user authentication based on azure devops API
+- Enable locking file features
+- Omit re upload repited objects 
 
 ## Installation
 

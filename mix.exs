@@ -25,6 +25,7 @@ defmodule Lfs.MixProject do
       {:redis, "~> 0.1"},
       {:ex_aws, "~> 2.0"},
       {:ex_aws_dynamo, "~> 2.0"},
+      {:ex_aws_s3, "~> 2.0"},
       {:hackney, "~> 1.9"},
       {:configparser_ex, "~> 4.0"},
       {:jason, "~> 1.2"},
@@ -34,7 +35,9 @@ defmodule Lfs.MixProject do
       {:distillery, "~> 2.1"},
       {:redix, ">= 0.0.0"},
       {:fast64, "~> 0.1.3"},
-      {:mock, "~> 0.3.0", only: :test},
+      {:sweet_xml, "~> 0.6"},
+      {:minne, "~> 0.1.0", git: "https://github.com/harmon25/minne.git"},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 end

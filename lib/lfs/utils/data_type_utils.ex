@@ -1,5 +1,4 @@
 defmodule Lfs.Utils.DataTypeUtils do
-
   def normalize(value = %{__struct__: _}), do: value
 
   def normalize(map = %{}) do
@@ -11,9 +10,9 @@ defmodule Lfs.Utils.DataTypeUtils do
   def normalize(value) when is_list(value), do: Enum.map(value, &normalize/1)
   def normalize(value), do: value
 
-
   def extract_header(headers, name) when is_list(headers) do
     out = Enum.filter(headers, create_evaluator(name))
+
     case out do
       [{_, value} | _] -> {:ok, value}
       _ -> {:error, "not found"}
@@ -30,5 +29,4 @@ defmodule Lfs.Utils.DataTypeUtils do
       _ -> false
     end
   end
-
 end
