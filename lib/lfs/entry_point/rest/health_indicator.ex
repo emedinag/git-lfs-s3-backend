@@ -4,6 +4,6 @@ defmodule Lfs.EntryPoint.Rest.HealthIndicator do
 
 
   def health() do
-    "UP"
+    Poison.encode!(%{:status=>"ok"})
   end
 end

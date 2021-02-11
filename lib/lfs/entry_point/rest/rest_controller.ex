@@ -107,13 +107,13 @@ defmodule Lfs.EntryPoint.Rest.RestController do
 
   post _ do
     IO.puts("@@@@@@@@@@@@@@ post")
-    IO.inspect(read_body(conn))
-    health() |> build_err_response(conn)
+    read_body(conn)
+    health() |> build_response(conn)
     IO.puts("========= post")
   end
 
   get _ do
-    health() |> build_err_response(IO.inspect(conn))
+    health() |> build_response(conn)
   end
 
   def build_response(%{status: status, body: body}, conn) do
