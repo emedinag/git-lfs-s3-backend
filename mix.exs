@@ -14,7 +14,7 @@ defmodule Lfs.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :opentelemetry],
       mod: {Lfs.Application, []}
     ]
   end
@@ -37,7 +37,10 @@ defmodule Lfs.MixProject do
       {:fast64, "~> 0.1.3"},
       {:sweet_xml, "~> 0.6"},
       {:minne, "~> 0.1.0", git: "https://github.com/harmon25/minne.git"},
-      {:mock, "~> 0.3.0", only: :test}
+      {:mock, "~> 0.3.0", only: :test},
+      {:telemetry, "~> 1.0", override: true},
+      {:opentelemetry_api, "~> 0.6.0"},
+      {:opentelemetry, "~> 0.6.0"}
     ]
   end
 end
