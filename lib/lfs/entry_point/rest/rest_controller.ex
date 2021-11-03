@@ -205,6 +205,7 @@ defmodule Lfs.EntryPoint.Rest.RestController do
 
 
   def setup() do
+    IO.puts("SETUP INSPECTOR")
     # register the tracer. just re-registers if called for multiple repos
     _ = OpenTelemetry.register_application_tracer(:lfs)
 

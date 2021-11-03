@@ -4,7 +4,8 @@ defmodule Lfs.Config.AppConfig do
     :enable_server,
     :region,
     :redis_url,
-    :dynamo_lock_table
+    :dynamo_lock_table,
+    :enable_otel
   ]
 
   def load_config do
@@ -12,7 +13,8 @@ defmodule Lfs.Config.AppConfig do
       http_port: load(:http_port),
       enable_server: load(:enable_server),
       region: load(:region),
-      dynamo_lock_table: load(:dynamo_lock_table)
+      dynamo_lock_table: load(:dynamo_lock_table),
+      enable_otel: load(:enable_otel)
     }
   end
 

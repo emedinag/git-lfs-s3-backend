@@ -11,7 +11,7 @@ defmodule Lfs.Application do
     config = AppConfig.load_config()
     in_test? = Application.fetch_env(:lfs, :in_test)
 
-    children = with_plug_server(config) ++ application_children(in_test?)
+    children = with_plug_server(config) ++ application_children(in_test?) ++ with_otel_inspector(config)
 
     opts = [strategy: :one_for_one, name: Lfs.Supervisor]
     h_opts = [{:timeout, 190_000}, {:max_connections, 6000}]
@@ -34,6 +34,14 @@ defmodule Lfs.Application do
       }
     ]
   end
+
+  defp with_otel_inspector(%AppConfig{enable_otel: true}) do
+    Lfs.EntryPoint.Rest.RestController.setup()
+    []
+  end
+
+  defp with_otel_inspector(%AppConfig{enable_otel: false}), do: []
+  
 
   defp with_plug_server(%AppConfig{enable_server: false}), do: []
 
